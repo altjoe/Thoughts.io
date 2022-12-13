@@ -7,7 +7,7 @@ import time
 import datetime
 # this wiill be a bitcoin specific sentiment
 
-urls = ['https://cryptodaily.co.uk/tag/bitcoinrobot/', 'https://newsbtc.com/news/bitcoin/']
+urls = ['https://cryptodaily.co.uk/tag/bitcoinrobot/', 'https://newsbtc.com/news/bitcoin/'] #cryptodaily 101 pages
 
 def getpagecontents(pageurl):
     page = requests.get(pageurl)
