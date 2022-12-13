@@ -1,12 +1,20 @@
+
+
+import os, sys
+parent = os.path.abspath('.')
+sys.path.insert(1, parent)
+
 from db_tunnel import tunnel
 from db import Database 
+from simpletext import send_message
+
 import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 import time 
 import random
 import datetime
-from simpletext import send_message
+
 
 def getpagecontents(pageurl):
     page = requests.get(pageurl)

@@ -1,2 +1,4 @@
-sentiment_server/api/venv/
-sentiment_server/api/__pycache__
+sentiment_server/api/cryptodaily/venv
+sentiment_server/api/cryptodaily/__pycache__
+sentiment_server/api/dailycoin/venv
+sentiment_server/api/dailycoin/__pycache__
