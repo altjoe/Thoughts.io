@@ -88,7 +88,7 @@ def dailycoin_stream(db, articlename):
                 articledata = pd.DataFrame(data={'title': title, 'author' : author, 'date' : date, 'contents' : articlecontents, 'link' : link}, index=[0])
 
                 if title not in titlestore:
-                    # send_message(f'New news available Cryptodaily: {title}')
+                    send_message(f'New news available Cryptodaily: {title}')
                     try:
                         db.insert_df(articledata, articlename)
                         titlestore.append(title)
@@ -96,6 +96,7 @@ def dailycoin_stream(db, articlename):
                     except Exception as e:
                         print(f' {e}\n[ERROR] Insert failed Cryptodaily: {title}')
                 else:
+                    
                     print(f'No more new stories: {datetime.datetime.now()}')
                     break
                     
