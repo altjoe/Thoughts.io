@@ -1,0 +1,3 @@
+[submodule "crypto/sentiment-server/api/crypto/sentiment-server/api/bitcoin/simpletext"]
+	path = crypto/sentiment-server/api/crypto/sentiment-server/api/bitcoin/simpletext
+	url = https://github.com/altjoe/simple-text.git
