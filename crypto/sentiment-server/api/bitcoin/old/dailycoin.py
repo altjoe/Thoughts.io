@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import urllib.request, sys, time
 import pandas as pd
 import requests
-from db import database as db_manager
+from bitcoin.old.old_db import database as db_manager
 import time
 import datetime
 # this wiill be a bitcoin specific sentiment
