@@ -60,6 +60,7 @@ def dailycoin_history(db, articlename):
         time.sleep(2)
 
 def dailycoin_stream(db, articlename):
+    send_message('Dailycoin Stream Starting...')
     while True:
         try:
             titlestore = list(db.select_df(f'select * from {articlename}')['title'].values)
@@ -82,7 +83,8 @@ def dailycoin_stream(db, articlename):
                 articlecontents = getpagecontents(link)
                 articledata = pd.DataFrame(data={'title': title, 'author' : author, 'date' : date, 'time' : entry_time, 'contents' : articlecontents, 'link' : link}, index=[0])
                 if title not in titlestore:
-                    try:
+                    send_message(f'New news available: {title}')
+		    try:
                         db.insert_df(articledata, articlename)
                         titlestore.append(title)
                         print(f'{title} -> Inserted Properly')
@@ -107,4 +109,4 @@ def stream():
     with Database() as db:
         dailycoin_stream(db, 'btc_article_dailycoin')
 
-tunnel(main)
+tunnel(stream)
