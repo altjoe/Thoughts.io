@@ -114,4 +114,4 @@ def stream():
     with Database() as db:
         dailycoin_stream(db, 'btc_article_cryptodaily')
 
-tunnel(main)
+tunnel(stream)
