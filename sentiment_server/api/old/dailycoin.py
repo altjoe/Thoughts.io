@@ -2,10 +2,9 @@ from bs4 import BeautifulSoup
 import urllib.request, sys, time
 import pandas as pd
 import requests
-from db import database as db_manager
+from bitcoin.old.old_db import database as db_manager
 import time
 import datetime
-import tunnel
 # this wiill be a bitcoin specific sentiment
 
 urls = ['https://cryptodaily.co.uk/tag/bitcoinrobot/', 'https://newsbtc.com/news/bitcoin/']
@@ -40,12 +39,8 @@ def historical_dailycoin(db : db_manager) :
                 articledata = pd.DataFrame(data={'title': title, 'author' : author, 'date' : date, 'time' : entry_time, 'contents' : articlecontents, 'link' : link}, index=[0])
 
                 # db.df_to_table(articledata, 'articles', 'title')
-                try:
-                    db.insert_df(articledata, 'articles')
-                    print(title, '- Inserted into table')
-                except Exception as e:
-                    print('error', e)
-                    print(title, 'Failed to insert')
+                db.insert_df(articledata, 'articles')
+                print(title, '- Inserted into table')
         else:
             print(f'[{datetime.datetiem.now()}] All historical data collected for Daily Coin waiting for new data.')
             break
@@ -57,16 +52,11 @@ def automated_collection():
         pass
 
 def main():
-
     db = db_manager()
-    # with open('clean_conn.sql') as file:
-    #     print(file.read())
-    # db.run_file('clean_conn.sql')
-
-    df = db.select_df('select * from articles')
-    print(df)
-
-    # historical_dailycoin(db)
+    with open('clean_conn.sql') as file:
+        print(file.read())
+    db.run_file('clean_conn.sql')
+    historical_dailycoin(db)
     
     # print(db.get_all_table_info())
     # db.query('select * from schema')

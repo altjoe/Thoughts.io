@@ -14,4 +14,5 @@ def open_tunnel():
                 time.sleep(5)
         print(f'Connection reopening in 5 seconds {datetime.datetime.now()}')
         time.sleep(5)
-
+# open_tunnel()
+open_tunnel()

@@ -96,6 +96,6 @@ class database:
                 string = str(tup)[1: -2]
                 command += f'({string}), '
 
-        command = command[:-2]
+        command = command[:-2] + ' ON CONFLICT DO NOTHING'
         self.query(command)
 
