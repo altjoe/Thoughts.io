@@ -6,6 +6,7 @@ import requests
 import time 
 import random
 import datetime
+from simpletext import send_message
 
 def getpagecontents(pageurl):
     page = requests.get(pageurl)
@@ -20,6 +21,7 @@ def getpagecontents(pageurl):
     return pagetext
 
 def dailycoin_history(db, articlename):
+    send_message('Dailycoin Historical Starting...')
     pagenum = 2
     try:
         titlestore = list(db.select_df(f'select * from {articlename}')['title'].values)
@@ -51,6 +53,7 @@ def dailycoin_history(db, articlename):
                     except Exception as e:
                         print(f' {e}\n[ERROR] Insert failed: {title}')
         else:
+            send_message('Dailycoin Historical Closed. PageNum: {pagenum}')
             print(f'[ERROR] Page error: {page.status_code} Page Num: {pagenum}')
             break
         pagenum += 1
@@ -104,4 +107,4 @@ def stream():
     with Database() as db:
         dailycoin_stream(db, 'btc_article_dailycoin')
 
-tunnel(stream)
+tunnel(main)
