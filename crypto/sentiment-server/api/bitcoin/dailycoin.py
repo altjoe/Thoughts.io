@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import requests
 import time 
 import random
+import datetime
 
 def getpagecontents(pageurl):
     page = requests.get(pageurl)
@@ -49,9 +50,6 @@ def dailycoin_history(db, articlename):
                         print(f'{title} -> Inserted Properly')
                     except Exception as e:
                         print(f' {e}\n[ERROR] Insert failed: {title}')
-
-                    
-            
         else:
             print(f'[ERROR] Page error: {page.status_code} Page Num: {pagenum}')
             break
@@ -87,12 +85,15 @@ def dailycoin_stream(db, articlename):
                         print(f'{title} -> Inserted Properly')
                     except Exception as e:
                         print(f' {e}\n[ERROR] Insert failed: {title}')
-
+                else:
+                    print(f'No more new stories: {datetime.datetime.now()}')
+                    break
                     
             
         else:
             print(f'[ERROR] Page error: {page.status_code}')
 
+        print('')
         time.sleep(15 * 60 + random.randint(-30, 30))
 
 def main():
