@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/home/alterejoe/Thoughts.io/sentiment_server/api/dailycoin.py", line 9, in <module>
-    from simpletext import send_message
-ImportError: cannot import name 'send_message' from 'simpletext' (unknown location)
