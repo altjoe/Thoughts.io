@@ -1,9 +1,10 @@
 import time
-
-from sentiment_server.db.db import Database
-from sentiment_server.db.db_tunnel import tunnel
-from sentiment_server.scraping.cryptodaily.cryptodaily import cryptodaily_history
-from sentiment_server.scraping.dailycoin.dailycoin import dailycoin_history
+from thoughts.sentiment_server.scraping.cryptodaily.cryptodaily import cryptodaily_history
+from thoughts.sentiment_server.scraping.dailycoin.dailycoin import dailycoin_history
+from  thoughts.mytools.db.db import Database
+from thoughts.mytools.db.db_tunnel import tunnel
+# from sentiment_server.scraping.cryptodaily.cryptodaily import cryptodaily_history
+# from sentiment_server.scraping.dailycoin.dailycoin import dailycoin_history
 
 import threading
 

@@ -1,6 +1,2 @@
-sentiment_server/api/cryptodaily/venv
-sentiment_server/api/cryptodaily/__pycache__
-sentiment_server/api/dailycoin/venv
-sentiment_server/api/dailycoin/__pycache__
-tools
-sentiment_server/venv
+venv/
+thoughts/mytools/simpletext

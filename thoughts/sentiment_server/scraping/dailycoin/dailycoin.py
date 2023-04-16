@@ -4,7 +4,7 @@ import os, sys
 parent = os.path.abspath('.')
 sys.path.insert(1, parent)
 
-from sentiment_server.db.db import Database
+from thoughts.mytools.db.db import Database
 import pandas as pd
 from bs4 import BeautifulSoup
 import requests

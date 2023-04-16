@@ -1,0 +1,5 @@
+setup.py
+thoughts.egg-info/PKG-INFO
+thoughts.egg-info/SOURCES.txt
+thoughts.egg-info/dependency_links.txt
+thoughts.egg-info/top_level.txt
