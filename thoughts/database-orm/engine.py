@@ -8,7 +8,6 @@ def create_postgres_engine(username, password, hostname, port, dbname):
     engine = create_engine(
         'postgresql://{}:{}@{}:{}/{}'.format(username, password, hostname, port, dbname))
 
-
     return engine
 
 
