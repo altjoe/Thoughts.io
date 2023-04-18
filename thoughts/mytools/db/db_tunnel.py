@@ -6,5 +6,5 @@ def tunnel(func):
                                 ssh_username="alterejo",
                                 remote_bind_address=('localhost', 5432),
                                 local_bind_address=('localhost', 5432)) as tunnel:
-        func()
+        return func()
 

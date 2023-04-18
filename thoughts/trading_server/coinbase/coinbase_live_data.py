@@ -16,7 +16,6 @@ class CoinbaseLiveData:
         self.product_id = product_id
         self.interval = interval
         self.candlesticks = CandleStickCalculations(interval)
-        self.db_connection = Database('alterejo_trading')
         # self.fetch_all_data_points()
         self.fetch_existing_data()
         self.main_loop()

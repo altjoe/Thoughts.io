@@ -9,6 +9,8 @@ import threading
 import time
 import websockets
 import websocket
+from thoughts.mytools.db.db import Database
+from thoughts.mytools.db.db_tunnel import tunnel
 
 from thoughts.trading_server.coinbase.coinbase_live_data import CoinbaseLiveData
 
@@ -23,6 +25,8 @@ class TradingController:
         self.coinbase_connections = {}
         self.coins_to_track = ['BTC-USD']  # , 'XLM-USD', 'ETH-USD']
         self.streaming_data = {}
+        self.db_connection = tunnel(Database())
+        
 
         # this only starts data collection, there is no live data yet
         for coin in self.coins_to_track:
@@ -54,13 +58,10 @@ class TradingController:
 
 
 if __name__ == "__main__":
-    controller = TradingController()
+    # constroller = tunnel(TradingController())
+    # print('ran')
 
-    # check if controller thread is running
-    # if not server_thread.thread.is_alive():
-    #     # if not, start it again
-    #     server_thread = TradingController()
-
+    
 
 class ConnectToSocket:
     def __init__(self):
