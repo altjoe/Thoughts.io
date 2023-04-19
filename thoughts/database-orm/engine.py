@@ -1,3 +1,4 @@
+import pretty_errors
 import time
 from sqlalchemy import create_engine
 import psycopg2
